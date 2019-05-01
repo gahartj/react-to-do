@@ -26,12 +26,16 @@ import React, { Component } from 'react';
      this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
   }
 
-toggleComplete(index) {
-  const todos = this.state.todos.slice();
-  const todo = todos[index];
-  todo.isCompleted = todo.isCompleted ? false : true;
-  this.setState({ todos: todos});
-}
+  toggleComplete(index) {
+    const todos = this.state.todos.slice();
+    const todo = todos[index];
+    todo.isCompleted = todo.isCompleted ? false : true;
+    this.setState({ todos: todos});
+  }
+
+  deleteTodo() {
+    console.log('deleteTodo executed');
+  }
 
    render() {
      return (
