@@ -33,6 +33,11 @@ toggleComplete(index) {
   this.setState({ todos: todos});
 }
 
+deleteTodo(index) {
+    const updatedList = this.state.todos.filter(todo => todo !== this.state.todos[index]);
+    this.setState({ todos: updatedList });
+  }
+
    render() {
      return (
        <div className="App">
