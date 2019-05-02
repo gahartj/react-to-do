@@ -33,8 +33,9 @@ import React, { Component } from 'react';
     this.setState({ todos: todos});
   }
 
-  deleteTodo() {
-    console.log('deleteTodo executed');
+  deleteTodo(index) {
+    const updatedList = this.state.todos.filter(todo => todo !== this.state.todos[index]);
+    this.setState({ todos: updatedList });
   }
 
    render() {
@@ -42,7 +43,7 @@ import React, { Component } from 'react';
        <div className="App">
         <ul>
           { this.state.todos.map( (todo, index) =>
-            <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () =>  this.toggleComplete(index) } />
+            <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () =>  this.toggleComplete(index) } deleteTodo={ () => this.deleteTodo(index) } />
           )}
          </ul>
          <form onSubmit={ (e) => this.handleSubmit(e) }>
